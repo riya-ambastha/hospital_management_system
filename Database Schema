@@ -1,0 +1,62 @@
+a. Tables:
+1. Patients Table:
+
+CREATE TABLE Patients (
+    patient_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    gender VARCHAR(10),
+    contact_info VARCHAR(50),
+    medical_history TEXT
+);
+2. DOCTOR TABLE :
+CREATE TABLE Doctors (
+    doctor_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    specialization VARCHAR(50),
+    contact_info VARCHAR(50),
+    availability_schedule VARCHAR(100)
+);
+
+3.APPOINTMENT TABLE:
+CREATE TABLE Appointments (
+    appointment_id INT PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    appointment_date DATE,
+    reason TEXT,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id)
+);
+
+4. ROOMS TABLE:
+CREATE TABLE Rooms (
+    room_id INT PRIMARY KEY,
+    room_type VARCHAR(50),
+    availability BOOLEAN,
+    patient_id INT,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id)
+);
+5. BILLING TABLE :
+CREATE TABLE Billing (
+    billing_id INT PRIMARY KEY,
+    patient_id INT,
+    total_amount DECIMAL(10, 2),
+    payment_status VARCHAR(50),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id)
+);
+
+6.Prescriptions Table:
+
+CREATE TABLE Prescriptions (
+    prescription_id INT PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    medicine VARCHAR(100),
+    dosage VARCHAR(50),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Doctors(doctor_id)
+);
+
+ 
+
