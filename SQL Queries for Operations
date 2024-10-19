@@ -1,0 +1,14 @@
+a. Insert a New Patient:
+
+INSERT INTO Patients (patient_id, name, age, gender, contact_info, medical_history)
+VALUES (101, 'John Doe', 45, 'Male', '9876543210', 'Diabetes');
+
+b. Book an Appointment:
+
+INSERT INTO Appointments (appointment_id, patient_id, doctor_id, appointment_date, reason)
+VALUES (201, 101, 301, '2024-10-20', 'Routine Checkup');
+
+c. Generate a Bill:
+
+INSERT INTO Billing (billing_id, patient_id, total_amount, payment_status)
+VALUES (301, 101, 5000.00, 'Paid');
